@@ -1,15 +1,14 @@
 {
-    "name": "mikualpha/swsad-final-item",
+    "name": "graduationProject",
     "type": "project",
     "license": "MIT",
     "authors": [
         {
-            "name": "mikualpha",
-            "email": "mikualpha@vip.qq.com"
+            "name": "jiangxm9",
+            "email": "1041965419@qq.com"
         }
     ],
     "require": {
-        "lcobucci/jwt": "^3.2",
-        "aliyuncs/oss-sdk-php": "^2.3"
+        "lcobucci/jwt": "^3.2"
     }
 }
