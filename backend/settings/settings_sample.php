@@ -4,8 +4,8 @@
  * 
  * 若需要运行程序，请将此文件复制并重命名为settings.php，再进行设置。
  * 
- * @author  MikuAlpha
- * @version 1.1
+ * @author  jiangxm9
+ * @version 1.0
  */
 
 //站点域名
@@ -31,21 +31,6 @@ define('DB_PASS', 'example');
 
 //数据库-库名称
 define('DB_NAME', 'default');
-
-//OSS-AccessKeyId
-define('OSS_ACCESS_KEY_ID', '');
-
-//OSS-AccessKeySecret
-define('OSS_ACCESS_KEY_SECRET', '');
-
-//OSS-EndPoint
-define('OSS_ENDPOINT', '');
-
-//OSS-Bucket
-define('OSS_BUCKET_NAME', '');
-
-//OSS-InternalDomain
-define('OSS_INTERNAL_DOMAIN', '');
 
 //默认头像地址
 define('DEFAULT_AVATAR', 'https://secure.gravatar.com/avatar/');
