@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin:http://localhost:8080/"); 
 /**
  * 商家头像上传类
  * 
@@ -30,4 +31,4 @@ if (!is_uploaded_file($file['tmp_name'])) returnJson(403);
 $filename = getImageLink(uploadImage());
 editResIconLink($resid, $filename);
 
-returnJson(200, array('link' => $filename));
+returnJson(200, array('url' => $filename));

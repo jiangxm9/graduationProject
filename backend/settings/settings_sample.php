@@ -4,7 +4,7 @@
  * 
  * 若需要运行程序，请将此文件复制并重命名为settings.php，再进行设置。
  * 
- * @author  jiangxm9
+ * @author  jianxm9
  * @version 1.0
  */
 

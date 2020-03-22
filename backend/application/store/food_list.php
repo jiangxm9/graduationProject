@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin:http://localhost:8080/"); 
 /**
  * 商品列表获取类
  * 
@@ -21,13 +22,13 @@ if (!$resid) returnJson(401);
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
-        getList();
+        getFoList();
         break;
     default:
         returnJson(400);
 }
 
-function getList() {
+function getFoList() {
 	global $resid;
 
     $foodList = getFoodList($resid);

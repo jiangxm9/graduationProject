@@ -1,10 +1,11 @@
 <?php
+header("Access-Control-Allow-Origin:http://localhost:8080/"); 
 /**
  * 注册接口
  * 
  * 提供注册操作，需要POST输入用户名与密码参数。
  * 
- * @author  MikuAlpha
+ * @author  jiangxm9
  * @version 1.0
  */
 
