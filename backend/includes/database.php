@@ -553,8 +553,11 @@ function editOrderStatus($id, $status)
     $stmt->execute();
     $stmt->store_result();
 
+    $result = mysqli_affected_rows($mysql);
+
     $stmt->close();
     $mysql->close();
+    return ($result > 0);
 }
 
 /**
@@ -601,7 +604,7 @@ function getOrderItem($resid, $id) {
         $inside->bind_result($foodname, $price, $imgurl);
         $inside->fetch();
 
-        $content[] = array('id' => $info[$i]['id'], 'name' => $foodname, 'price' => $price, 'num' => $info[$i]['number'], 'icon' => $imgurl); 
+        $content[] = array('id' => $info[$i]['id'], 'name' => $foodname, 'price' => $price, 'number' => $info[$i]['number'], 'icon' => $imgurl); 
 
         $inside->close();
     } 

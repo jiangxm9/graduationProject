@@ -241,7 +241,7 @@ export default {
         if (resp.status == 200 && json.status == 200) {
           this.$notify({
             title: '添加成功',
-            message: '下单商品id为：' + json.data.id,
+            message: '添加商品id为：' + json.data.id,
             type: 'success'
           });
         } else {
