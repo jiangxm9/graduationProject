@@ -12,6 +12,7 @@
         round
         style="margin-left: 10px"
         icon="el-icon-search"
+        :disabled="identity"
         @click="getTaskListByEmpid"
       >获取员工任务</el-button>
       <el-button type="primary" round style="margin-left: 10px" @click="loadTaskList">获取所有任务</el-button>
@@ -43,6 +44,7 @@
               style="color: #ff0509"
               type="text"
               icon="el-icon-delete"
+              :disabled="identity"
               @click="deleteTask(scope.row.id)"
             >删除</el-button>
             <el-dialog title="修改任务信息" :visible.sync="taskDialogVisible" width="30%" center>
@@ -60,6 +62,7 @@
               style="margin-left: 10px;color: #67C23A"
               type="text"
               icon="el-icon-refresh"
+              :disabled="identity"
               @click="modifyTask(scope.row.id, scope.row.task, scope.row.evaluation, scope.row.remark)"
             >修改</el-button>
           </template>
@@ -86,7 +89,8 @@ export default {
       newTask: "",
       newEvaluation: "",
       newRemark: "",
-      newTaskid: ""
+      newTaskid: "",
+      identity: (this.$store.state.identity == 0)
     };
   },
   methods: {
@@ -107,6 +111,7 @@ export default {
           this.$alert("发生错误，获取任务列表失败！" + url);
         }
       });
+      this.employeeid = '';
       this.loading = false;
     },
     getTaskListByEmpid() {
@@ -129,6 +134,7 @@ export default {
           this.$message.error("检索失败");
         }
       });
+      this.employeeid = '';
       this.loading = false;
     },
     deleteTask(taskid) {

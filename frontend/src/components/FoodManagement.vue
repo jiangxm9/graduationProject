@@ -12,6 +12,7 @@
             style="float: right; padding: 3px 0;color: #ff0509"
             type="text"
             icon="el-icon-delete"
+            :disabled="identity"
             @click="deleteFood(food.id)"
           >删除</el-button>
         </div>
@@ -54,6 +55,7 @@
             </el-dialog>
             <el-button
               type="primary"
+              :disabled="identity"
               round
               @click="modifyFoodInfo(food.id, food.name, food.price, food.icon)"
             >修改商品信息</el-button>
@@ -84,6 +86,7 @@
     <el-button
       type="primary"
       icon="el-icon-plus"
+      :disabled="identity"
       round
       style="position: fixed;z-index:99;right:10px;top:100px;"
       @click="addFood"
@@ -130,7 +133,8 @@ export default {
       addFoodName: "",
       addFoodPrice: "",
       addFoodIcon: "",
-      orderRemark: ""
+      orderRemark: "",
+      identity: (this.$store.state.identity == 0)
     };
   },
   methods: {
@@ -281,6 +285,14 @@ export default {
           orderContent.push(item);
         }
       }
+      if(Object.keys(orderContent).length == 0){
+        this.$notify.error({
+            title: '下单失败',
+            message: '请选择商品再下单'
+          });
+          this.loading = false;
+          return;
+      }
       var order = {};
       order["content"] = orderContent;
       order["remark"] = this.orderRemark;
@@ -308,6 +320,7 @@ export default {
           });
         }
       });
+      this.orderRemark = '';
       this.orderNum.fill(0);
       this.loading = false;
     }

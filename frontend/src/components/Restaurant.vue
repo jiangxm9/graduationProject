@@ -52,7 +52,7 @@
                 <el-button type="primary" @click="uploadNewResInfo">确 定</el-button>
               </span>
             </el-dialog>
-            <el-button type="primary" round @click="centerDialogVisible=true">修改店铺信息</el-button>
+            <el-button type="primary" :disabled="identity" round @click="centerDialogVisible=true">修改店铺信息</el-button>
           </div>
         </div>
       </el-col>
@@ -72,7 +72,8 @@ export default {
       imgSrc: this.$store.state.restaurantIcon,
       centerDialogVisible: false,
       imageUrl: this.$store.state.restaurantIcon,
-      inputResName: this.$store.state.restaurantName
+      inputResName: this.$store.state.restaurantName,
+      identity: (this.$store.state.identity == 0)
     };
   },
   methods: {

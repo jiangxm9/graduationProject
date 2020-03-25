@@ -23,8 +23,8 @@
         type="number"
         style="margin-left: 10px;width: 200px;"
       ></el-input>
-      <el-button type="primary" round style="margin-left: 10px" @click="addEmployee">新增员工</el-button>
-      <el-button type="primary" round style="margin-left: 10px" @click="modifyEmployee">更新员工信息</el-button>
+      <el-button :disabled="identity" type="primary" round style="margin-left: 10px" @click="addEmployee">新增员工</el-button>
+      <el-button :disabled="identity" type="primary" round style="margin-left: 10px" @click="modifyEmployee">更新员工信息</el-button>
     </el-header>
     <el-main class="employee_mana_main" v-loading="loading">
       <el-table
@@ -44,6 +44,7 @@
               style="color: #ff0509"
               type="text"
               icon="el-icon-delete"
+              :disabled="identity"
               @click="deleteEmployee(scope.row.id)"
             >开除</el-button>
             <el-input
@@ -55,6 +56,7 @@
               style="color: #67C23A"
               type="text"
               icon="el-icon-plus"
+              :disabled="identity"
               @click="addTask(scope.row.id)"
             >任务</el-button>
           </template>
@@ -83,7 +85,8 @@ export default {
       employeeName: "",
       employeeJob: "",
       employeeWage: "",
-      task: []
+      task: [],
+      identity: (this.$store.state.identity == 0)
     };
   },
   methods: {
