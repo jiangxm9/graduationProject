@@ -281,7 +281,7 @@ function checkPassword($password)
     if (strlen($password) >= 20) returnJson(1004);
 
     $check = preg_match('/^\w{8,20}$/is', $password);
-    if ($check <= 0) returnJson(1005);
+    if ($check <= 0) returnJson(1006);
 
     return true;
 }
